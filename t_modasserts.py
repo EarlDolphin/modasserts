@@ -4,7 +4,7 @@ from modasserts import myAsserts
 
 
 class TestTheTests(unittest.TestCase, myAsserts):
-  def setup(self):
+  def setUp(self):
     self.func = (lambda x: 1/x)
 
   def test_pass1(self):
