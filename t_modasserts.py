@@ -23,19 +23,19 @@
 #OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import unittest
-from modasserts import myAsserts
+from modasserts import mod_asserts
 
 def ensure_fails(testObj, *args, **kwargs):
   """
-  Purpose: Test that a myAsserts DidNotFailError is raised when a test given to assertFail does not fail
-  Method: Call assertFail on a test (contained in the kwargs) and raise if a myAsserts.DidNotRaiseError is not raised
+  Purpose: Test that a mod_asserts DidNotFailError is raised when a test given to assertFail does not fail
+  Method: Call assertFail on a test (contained in the kwargs) and raise if a mod_asserts.DidNotRaiseError is not raised
   """
   try: testObj.assertFail(*args, **kwargs)
-  except myAsserts.DidNotFailError: pass # What we want
+  except mod_asserts.DidNotFailError: pass # What we want
   except Exception as e: raise e
   else: raise AssertionError()
 
-class TestTheTests(unittest.TestCase, myAsserts):
+class TestTheTests(unittest.TestCase, mod_asserts):
   def setUp(self):
     self.func = (lambda x: 1/x)
 
